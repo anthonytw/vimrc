@@ -1,4 +1,5 @@
 	git clone git@github.com:anthonytw/vimrc.git ~/.vim_runtime
+	git clone https://github.com/anthonytw/vimrc.git ~/.vim_runtime
 	sh ~/.vim_runtime/install_awesome_vimrc.sh
 
 # The Ultimate vimrc
