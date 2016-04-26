@@ -36,3 +36,5 @@ nnoremap <leader>sd :SyntasticToggleMode<cr>
 nnoremap <leader>cs :SyntasticCheck<cr>
 
 nnoremap <leader>wtf gg<c-v>G=
+
+au BufNewFile,BufRead *.thrift set filetype=thrift
