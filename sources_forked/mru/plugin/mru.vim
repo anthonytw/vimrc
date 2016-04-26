@@ -986,4 +986,4 @@ command! -nargs=? -complete=customlist,s:MRU_Complete Mru
 let &cpo = s:cpo_save
 unlet s:cpo_save
 
-" vim:set foldenable foldmethod=marker:
+" vim:set nofoldenable foldmethod=marker:

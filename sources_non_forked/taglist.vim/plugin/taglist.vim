@@ -1494,7 +1494,7 @@ function! s:Tlist_Window_Init()
     endif
 
     " Folding related settings
-    setlocal foldenable
+    setlocal nofoldenable
     setlocal foldminlines=0
     setlocal foldmethod=manual
     setlocal foldlevel=9999

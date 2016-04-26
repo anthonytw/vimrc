@@ -1645,7 +1645,7 @@ function! s:diff_restore() abort
         \ . ' foldmethod=' . &l:foldmethod
         \ . ' foldcolumn=' . &l:foldcolumn
         \ . ' foldlevel=' . &l:foldlevel
-        \ . (&l:foldenable ? ' foldenable' : ' nofoldenable')
+        \ . (&l:foldenable ? ' nofoldenable' : ' nofoldenable')
   if has('cursorbind')
     let restore .= (&l:cursorbind ? ' ' : ' no') . 'cursorbind'
   endif
@@ -1927,7 +1927,7 @@ function! s:Blame(bang,line1,line2,count,args) abort
           let restore .= '|call setwinvar(bufwinnr('.bufnr.'),"&wrap",1)'
         endif
         if &l:foldenable
-          let restore .= '|call setwinvar(bufwinnr('.bufnr.'),"&foldenable",1)'
+          let restore .= '|call setwinvar(bufwinnr('.bufnr.'),"&nofoldenable",1)'
         endif
         setlocal scrollbind nowrap nofoldenable
         if exists('+cursorbind')

@@ -306,9 +306,9 @@ func! DeleteTrailingWS()
   %s/\s\+$//ge
   exe "normal `z"
 endfunc
-autocmd BufWrite *.py :call DeleteTrailingWS()
-autocmd BufWrite *.coffee :call DeleteTrailingWS()
-
+"autocmd BufWrite *.py :call DeleteTrailingWS()
+"autocmd BufWrite *.coffee :call DeleteTrailingWS()
+nmap <leader>trim :call DeleteTrailingWS()<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Ack searching and cope displaying
