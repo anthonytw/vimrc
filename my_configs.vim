@@ -1,6 +1,6 @@
 set number
-set cindent
-set nosmartindent
+set nocindent
+set smartindent
 
 silent! nmap <F3> :NERDTreeToggle<CR>
 
