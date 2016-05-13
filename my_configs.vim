@@ -11,6 +11,7 @@ silent! nmap <F3> :NERDTreeToggle<CR>
 
 let g:syntastic_cpp_check_header = 1
 let g:syntastic_cpp_compiler = 'clang++'
+let g:syntastic_cpp_compiler_options = '-std=c++14'
 
 let g:syntastic_c_check_header = 1
 let g:syntastic_c_compiler = 'clang'
