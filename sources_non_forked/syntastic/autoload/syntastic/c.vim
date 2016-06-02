@@ -226,7 +226,7 @@ function! s:_get_cflags(ft, ck, opts) abort " {{{2
     if b_cflags == ''
         " check whether to search for include files at all
         if !s:_get_checker_var('g', a:ft, a:ck, 'no_include_search', 0)
-            if a:ft ==# 'c' || a:ft ==# 'cpp'
+            if a:ft ==# 'c' || a:ft ==# 'cpp' || a:ft ==# 'cuda'
                 " refresh the include file search if desired
                 if s:_get_checker_var('g', a:ft, a:ck, 'auto_refresh_includes', 0)
                     let flags .= ' ' . s:_search_headers()
@@ -256,7 +256,7 @@ endfunction " }}}2
 function! s:_get_include_dirs(filetype) abort " {{{2
     let include_dirs = []
 
-    if a:filetype =~# '\v^%(c|cpp|objc|objcpp)$' &&
+    if a:filetype =~# '\v^%(c|cpp|objc|objcpp|cuda)$' &&
                 \ (!exists('g:syntastic_'.a:filetype.'_no_default_include_dirs') ||
                 \ !g:syntastic_{a:filetype}_no_default_include_dirs)
         let include_dirs = copy(s:default_includes)

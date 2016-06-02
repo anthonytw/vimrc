@@ -11,6 +11,10 @@ if exists("g:loaded_syntastic_cuda_nvcc_checker")
 endif
 let g:loaded_syntastic_cuda_nvcc_checker = 1
 
+if !exists('g:syntastic_cuda_config_file')
+    let g:syntastic_cuda_config_file = '.syntastic_cuda_config'
+endif
+
 let s:save_cpo = &cpo
 set cpo&vim
 
@@ -20,10 +24,9 @@ function! SyntaxCheckers_cuda_nvcc_GetLocList() dict
     else
         let arch_flag = ''
     endif
-    let makeprg =
-        \ self.getExecEscaped() . ' ' . arch_flag .
-        \ ' --cuda -O0 -I . -Xcompiler -fsyntax-only ' .
-        \ syntastic#util#shexpand('%') . ' ' . syntastic#c#NullOutput()
+    let makeprg = self.makeprgBuild({
+        \ 'args': arch_flag . ' --cuda -O0 -I . -Xcompiler -fsyntax-only ' . syntastic#c#ReadConfig(g:syntastic_cuda_config_file),
+        \ 'tail': syntastic#c#NullOutput() })
 
     let errorformat =
         \ '%*[^"]"%f"%*\D%l: %m,'.
@@ -53,7 +56,10 @@ function! SyntaxCheckers_cuda_nvcc_GetLocList() dict
         endif
     endif
 
-    return SyntasticMake({ 'makeprg': makeprg, 'errorformat': errorformat })
+    return SyntasticMake({
+        \ 'makeprg': makeprg,
+        \ 'errorformat': errorformat,
+        \ 'preprocess': 'cppcheck' })
 endfunction
 
 call g:SyntasticRegistry.CreateAndRegisterChecker({
