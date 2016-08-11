@@ -1,6 +1,9 @@
+" Notes:
+" ,trim -> delete trailing whitespace
+
 set number
 set nocindent
-set smartindent
+set nosmartindent
 set nofoldenable
 set foldmethod=syntax
 set foldlevelstart=1000
@@ -8,6 +11,9 @@ set foldlevelstart=1000
 let javaScript_fold=0
 
 silent! nmap <F3> :NERDTreeToggle<CR>
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 0
 
 let g:syntastic_cpp_check_header = 1
 let g:syntastic_cpp_compiler = 'clang++'
@@ -39,5 +45,9 @@ nnoremap <leader>sd :SyntasticToggleMode<cr>
 nnoremap <leader>cs :SyntasticCheck<cr>
 
 nnoremap <leader>wtf gg<c-v>G=
+
+" Navigating errors
+nnoremap <leader>n :lne<cr>
+nnoremap <leader>p :lpr<cr>
 
 au BufNewFile,BufRead *.thrift set filetype=thrift
