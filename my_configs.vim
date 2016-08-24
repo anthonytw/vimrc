@@ -8,6 +8,9 @@ set nofoldenable
 set foldmethod=syntax
 set foldlevelstart=1000
 
+" Try tabs for a while?
+set noexpandtab
+
 let javaScript_fold=0
 
 silent! nmap <F3> :NERDTreeToggle<CR>
