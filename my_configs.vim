@@ -8,8 +8,7 @@ set nofoldenable
 set foldmethod=syntax
 set foldlevelstart=1000
 
-" Try tabs for a while?
-set noexpandtab
+set expandtab
 
 let javaScript_fold=0
 
